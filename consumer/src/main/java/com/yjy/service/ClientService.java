@@ -12,7 +12,17 @@ public class ClientService {
 
     @Resource
     HelloService helloService;
+
+    @Resource
+    RestHello restHello;
+
     public String sayHello(String msg){
         return helloService.helloString(msg);
     }
+
+     public String sayRestHello(String msg){
+        return restHello.sayRestHello(msg);
+    }
+
+
 }

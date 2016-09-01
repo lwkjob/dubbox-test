@@ -11,7 +11,8 @@
        default-autowire="byName">
 
     <!-- dubbo config -->
-    <dubbo:protocol name="rest" port="8880"/>
+    <dubbo:protocol name="rest" port="8880" server="netty"/>
+
     <dubbo:protocol name="dubbo" port="20880"/>
     <dubbo:protocol name="hessian" port="20881"/>
     <dubbo:monitor address="dubbo://192.168.4.29:7070" />
