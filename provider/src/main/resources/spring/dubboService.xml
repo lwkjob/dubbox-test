@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+
+
+       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd"
+       default-autowire="byName">
+
+    <!-- dubbo config -->
+    <dubbo:protocol name="rest" port="8880"/>
+    <dubbo:protocol name="dubbo" port="20880"/>
+    <dubbo:protocol name="hessian" port="20881"/>
+    <dubbo:monitor address="dubbo://192.168.4.29:7070" />
+
+    <dubbo:application name="dubbox-server-test" logger="log4j"/>
+    <dubbo:registry protocol="zookeeper" address="${zookeeper}"/>
+
+    <dubbo:service retries="0" ref="helloService" timeout="3000" protocol="dubbo" interface="com.yjy.service.HelloService" />
+    <dubbo:service  ref="restHello" timeout="3000" protocol="rest" interface="com.yjy.service.RestHello"  />
+</beans>
