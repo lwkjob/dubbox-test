@@ -6,8 +6,8 @@
      http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <dubbo:application name="dubbox-client-test" logger="log4j"/>
-    <dubbo:registry protocol="zookeeper" address="${zookeeper}"/>
-    <dubbo:monitor address="dubbo://192.168.4.29:7070" />
+    <dubbo:registry protocol="zookeeper" address="${zookeeper}" timeout="60000"/>
+    <!--<dubbo:monitor address="dubbo://192.168.4.29:7070" />-->
 
     <dubbo:reference check="false" timeout="60000" interface="com.yjy.service.HelloService" id="helloService"/>
 
