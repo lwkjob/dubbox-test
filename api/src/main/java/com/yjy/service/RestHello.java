@@ -15,6 +15,6 @@ import javax.ws.rs.core.MediaType;
 public interface RestHello {
 
     @POST
-    @Path("{msg: \\d+}")
+    @Path("{msg: \\S+}")
     String sayRestHello(@PathParam("msg") String msg);
 }
