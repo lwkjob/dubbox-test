@@ -13,16 +13,13 @@
     <!-- dubbo config -->
     <dubbo:protocol name="rest" port="8886" server="netty"/>
 
-    <dubbo:protocol name="dubbo" port="20886" host="192.168.2.219"/>
-
+    <dubbo:protocol name="dubbo" port="20886"/>
     <dubbo:protocol name="hessian" port="20886"/>
-
     <!--<dubbo:monitor address="dubbo://192.168.4.29:7070" />-->
 
     <dubbo:application name="dubbox-server-test" logger="log4j"/>
     <dubbo:registry protocol="zookeeper" address="${zookeeper}" timeout="60000"/>
 
     <dubbo:service retries="0" ref="helloService" timeout="3000" protocol="dubbo" interface="com.yjy.service.HelloService" />
-    <dubbo:service retries="0" ref="helloService2" timeout="3000" protocol="dubbo" interface="com.yjy.service.HelloService" version="2.0.0" />
     <dubbo:service  ref="restHello" timeout="3000" protocol="rest" interface="com.yjy.service.RestHello"  />
 </beans>

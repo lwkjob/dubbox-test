@@ -18,11 +18,13 @@ public class ConsumerStartup {
         TimeUnit.SECONDS.sleep(10);
 
         System.out.println("开始");
-        for(int i=0;i<10;i++){
+        for(int i=0;i<1000000;i++){
 
-//            System.out.println(clientService.sayHello("你好rpc服务:"+i));
-                System.out.println(clientService.sayRestHello("你好rest服务:"+i));
+            System.out.println(clientService.sayHello("你好服务"));
+//                System.out.println(clientService.sayRestHello(i+""));
 //            TimeUnit.SECONDS.sleep(1);
         }
+
+
     }
 }
